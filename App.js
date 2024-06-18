@@ -23,8 +23,7 @@ const parent =React.createElement("div", {id:"parent"},[
     ]);
 
 
-const header = React.createElement(
-    "h1",
+const header = React.createElement("h1",
     {id:"header", xyz:"abc"},
     "Hello World using React!"
 );
