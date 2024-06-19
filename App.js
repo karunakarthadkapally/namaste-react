@@ -1,22 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const elem = <span>React Element : </span>;
-
-// React element inside element
-const title = (
+const Title = () => (
   <h1 className="title">
-    {elem}
-    Namaste React Using JSX with React element inside component
+    Namaste React Using JSX with React Component inside another component
   </h1>
 );
 
-// we can use component also inside element by using {}
-
-// putting React element in side component using curlie brackets
+// putting React components in side another component 3 different ways we can call another component.
 const HeadingComponent = () => (
   <div id="container">
-    {title}
+    {Title()}
+    <Title />
+    <Title></Title>
     <h1 className="heading">Namaste React Functional component.</h1>
   </div>
 );
