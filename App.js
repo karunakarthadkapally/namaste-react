@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React.createElement  ==> Object ==> HTMLElement(render)
+//React.createElement  ==> ReactElement JS-Object ==> HTMLElement(render)
 
 const header = React.createElement(
     "h1",
@@ -11,6 +11,14 @@ const header = React.createElement(
 
 console.log(header);
 
+//JSX (transpiled before it reaches the JS engine) - PARCEL - Babel
+
+//JSX ==> React.creatElement ==> ReactElement JS-Object ==> HTMLElement(render)
+
+const JSXHeader=<h1 id="header">Namaste React using JSX</h1>;
+
+console.log(JSXHeader);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(header);
+root.render(JSXHeader);
