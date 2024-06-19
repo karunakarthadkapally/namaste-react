@@ -1,15 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const JSXHeader = <h1 id="header">Namaste React using JSX</h1>;
-
+//React element
 const header = (
   <h1 className="header">Namaste React Using JSX with multiple line</h1>
 );
 
-console.log(JSXHeader);
-console.log(header);
+//React component 2 types
+// 1. Class based component  ==> OLD way of writing components
+// 2. Functional component  ==> NEW way of writing components
+
+// functional based component is a javascript function which return JSX piece of code.
+
+// components in React, first letter is Capital letter.
+
+// React Functional component.
+const HeadingComponent = () => {
+  return <h1>Namaste React using Functional component.</h1>;
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(JSXHeader);
+// we should use < component />  while render the react components
+root.render(<HeadingComponent />);
