@@ -1508,6 +1508,11 @@ const resList = [
 const RestaurentCard = (props) => {
   const { resData } = props;
 
+  const { cloudinaryImageId, name, avgRating, costForTwo, cuisines, locality } =
+    resData?.info;
+
+  const { slaString } = resData?.info?.sla;
+
   return (
     <div className="res-card" style={{ background: "#f0f0f0" }}>
       <img
@@ -1515,15 +1520,15 @@ const RestaurentCard = (props) => {
         alt="res-logo"
         src={
           "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          resData.info.cloudinaryImageId
+          cloudinaryImageId
         }
       />
-      <h3>{resData.info.name}</h3>
-      <h4>{resData.info.avgRating} Stars</h4>
-      <h4>{resData.info.costForTwo}</h4>
-      <h4>{resData.info.sla.slaString}</h4>
-      <h4>{resData.info.cuisines.join(", ")}</h4>
-      <h4>{resData.info.locality}</h4>
+      <h3>{name}</h3>
+      <h4>{avgRating} Stars</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{slaString}</h4>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{locality}</h4>
     </div>
   );
 };
