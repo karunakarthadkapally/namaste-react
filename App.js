@@ -1079,89 +1079,6 @@ const resList = [
   },
   {
     info: {
-      id: "68320",
-      name: "Faasos - Wraps, Rolls & Shawarma",
-      cloudinaryImageId:
-        "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/5/a929e0a0-97c9-459a-a592-c384cb828c87_68320.jpg",
-      locality: "Ground floor, Mehdipatnam (Behind Mina Hospital)",
-      areaName: "Humayun Nagar",
-      costForTwo: "₹200 for two",
-      cuisines: [
-        "Kebabs",
-        "Fast Food",
-        "Snacks",
-        "American",
-        "Healthy Food",
-        "Desserts",
-        "Beverages",
-      ],
-      avgRating: 3.9,
-      parentId: "21809",
-      avgRatingString: "3.9",
-      totalRatingsString: "5K+",
-      sla: {
-        deliveryTime: 32,
-        lastMileTravel: 2.9,
-        serviceability: "SERVICEABLE",
-        slaString: "30-35 mins",
-        lastMileTravelString: "2.9 km",
-        iconType: "ICON_TYPE_EMPTY",
-      },
-      availability: {
-        nextCloseTime: "2024-06-20 23:59:00",
-        opened: true,
-      },
-      badges: {
-        imageBadges: [
-          {
-            imageId: "Rxawards/_CATEGORY-Rolls.png",
-            description: "Delivery!",
-          },
-        ],
-      },
-      isOpen: true,
-      type: "F",
-      badgesV2: {
-        entityBadges: {
-          imageBased: {
-            badgeObject: [
-              {
-                attributes: {
-                  description: "Delivery!",
-                  imageId: "Rxawards/_CATEGORY-Rolls.png",
-                },
-              },
-            ],
-          },
-          textBased: {},
-          textExtendedBadges: {},
-        },
-      },
-      aggregatedDiscountInfoV3: {
-        header: "₹125 OFF",
-        subHeader: "ABOVE ₹199",
-        discountTag: "FLAT DEAL",
-      },
-      differentiatedUi: {
-        displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-        differentiatedUiMediaDetails: {
-          mediaType: "ADS_MEDIA_ENUM_IMAGE",
-          lottie: {},
-          video: {},
-        },
-      },
-      reviewsSummary: {},
-      displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-      restaurantOfferPresentationInfo: {},
-    },
-    analytics: {},
-    cta: {
-      link: "https://www.swiggy.com/restaurants/faasos-wraps-rolls-and-shawarma-ground-floor-mehdipatnam-behind-mina-hospital-humayun-nagar-hyderabad-68320",
-      type: "WEBLINK",
-    },
-  },
-  {
-    info: {
       id: "22260",
       name: "Baskin Robbins - Ice Cream Desserts",
       cloudinaryImageId: "85ccae4e3576f9330af102c46ca85395",
@@ -1512,8 +1429,15 @@ const RestaurentCard = (props) => {
   //some times the object itself will not present. if the object is not present then it throw error to avoid it we use ?.
   // so it will assign undefined to the non existed object
 
-  const { cloudinaryImageId, name, avgRating, costForTwo, cuisines, locality } =
-    resData?.info;
+  const {
+    cloudinaryImageId,
+    name,
+    avgRating,
+    costForTwo,
+    cuisines,
+    locality,
+    areaName,
+  } = resData?.info;
 
   const { slaString } = resData?.info?.sla;
 
@@ -1532,7 +1456,9 @@ const RestaurentCard = (props) => {
       <h4>{costForTwo}</h4>
       <h4>{slaString}</h4>
       <h4>{cuisines.join(", ")}</h4>
-      <h4>{locality}</h4>
+      <h4>
+        {locality}, {areaName}
+      </h4>
     </div>
   );
 };
@@ -1544,9 +1470,9 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurentCard resData={resList[0]} />
-        <RestaurentCard resData={resList[1]} />
-        <RestaurentCard resData={resList[2]} />
+        {resList.map((restaurent, index) => (
+          <RestaurentCard key={restaurent.info.id} resData={restaurent} />
+        ))}
       </div>
     </div>
   );
