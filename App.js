@@ -9,6 +9,8 @@ import ReactDOM from "react-dom/client";
  *   - Search
  *   - RestaurentContainer
  *     - RestaurentCard
+ *        -Img
+ *        -Name of Res, Star Rating, cuisine, delery tie
  *  FOOTER
  *   - Copyright
  *   - Links
@@ -27,12 +29,12 @@ const Header = () => {
         />
       </div>
       <div className="nav-items">
-        <ui>
+        <ul>
           <li>Home</li>
           <li>About Us</li>
           <li>Contact Us</li>
           <li>Cart</li>
-        </ui>
+        </ul>
       </div>
     </div>
   );
@@ -41,7 +43,7 @@ const Header = () => {
 const Body = () => {
   return (
     <div className="body">
-      <div clasaName="search-container"></div>
+      <div clasaName="search"></div>
       <div className="res-container"></div>
     </div>
   );
