@@ -1508,6 +1508,10 @@ const resList = [
 const RestaurentCard = (props) => {
   const { resData } = props;
 
+  // used optional chaining if the if we are looking for the value which may be having it in a object.
+  //some times the object itself will not present. if the object is not present then it throw error to avoid it we use ?.
+  // so it will assign undefined to the non existed object
+
   const { cloudinaryImageId, name, avgRating, costForTwo, cuisines, locality } =
     resData?.info;
 
