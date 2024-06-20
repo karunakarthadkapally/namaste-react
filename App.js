@@ -40,11 +40,41 @@ const Header = () => {
   );
 };
 
+const RestaurentCard = () => {
+  return (
+    <div className="res-card" style={{ background: "#f0f0f0" }}>
+      <img
+        className="res-logo"
+        alt="res-logo"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/qesudtagxezda24kufwt"
+      />
+      <h3>Meghana Foods</h3>
+      <h4>Biryani, North Indian, Asian</h4>
+      <h4>4.4 Stars</h4>
+      <h4>38 minutes</h4>
+    </div>
+  );
+};
+
 const Body = () => {
   return (
     <div className="body">
-      <div clasaName="search"></div>
-      <div className="res-container"></div>
+      <div clasaName="search">Search</div>
+      <div className="res-container">
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+        <RestaurentCard />
+      </div>
     </div>
   );
 };
