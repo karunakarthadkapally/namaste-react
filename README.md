@@ -48,3 +48,10 @@ import component from "path"
 
 export const component;
 import {component} from "path";
+
+# React Hooks
+
+(Normal JS utility functions)
+
+- useState() - Superpowerful State Variables in react
+- useEffect()
