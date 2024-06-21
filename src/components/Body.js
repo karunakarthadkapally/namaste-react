@@ -1,6 +1,6 @@
-import RestaurentCard from "./RestaurentCard"; // importing the default export
-import resList from "../utils/mockData";
+import RestaurentCard from "./RestaurentCard";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
@@ -24,7 +24,7 @@ const Body = () => {
   };
 
   if (listOfRestaurents.length === 0) {
-    return <h1>loading...</h1>;
+    return <Shimmer />;
   }
 
   return (
