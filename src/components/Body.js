@@ -3,7 +3,9 @@ import resList from "../utils/mockData";
 import { useState } from "react";
 
 const Body = () => {
-  const [listOfRestaurents, setListOfRestaurents] = useState(resList);
+  const arr = useState(resList);
+
+  const [listOfRestaurents, setListOfRestaurents] = arr;
 
   return (
     <div className="body">
