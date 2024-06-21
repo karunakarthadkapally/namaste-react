@@ -5,7 +5,10 @@ import { useState } from "react";
 const Body = () => {
   const arr = useState(resList);
 
-  const [listOfRestaurents, setListOfRestaurents] = arr;
+  //const [listOfRestaurents, setListOfRestaurents] = arr;
+
+  const listOfRestaurents = arr[0];
+  const setListOfRestaurents = arr[1];
 
   return (
     <div className="body">
