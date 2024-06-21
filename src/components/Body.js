@@ -1,9 +1,31 @@
 import RestaurentCard from "./RestaurentCard"; // importing the default export
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Body = () => {
-  const [listOfRestaurents, setListOfRestaurents] = useState(resList);
+  const [listOfRestaurents, setListOfRestaurents] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+
+    console.log(json);
+
+    setListOfRestaurents(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  if (listOfRestaurents.length === 0) {
+    return <h1>loading...</h1>;
+  }
 
   return (
     <div className="body">
