@@ -16,18 +16,15 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
-
     setListOfRestaurents(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  if (listOfRestaurents.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  // conditional rendering = based on the condition we are rendering the component
+  return listOfRestaurents.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
