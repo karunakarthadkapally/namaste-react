@@ -4,6 +4,10 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurents, setListOfRestaurents] = useState([]);
+  let [searchText, setSearchText] = useState("");
+
+  //Whenever a state variable is updated, react triggers a reconciliation cycle(re-renders the component)
+  console.log("Body Rendered");
 
   useEffect(() => {
     fetchData();
@@ -27,6 +31,23 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              console.log(searchText);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
